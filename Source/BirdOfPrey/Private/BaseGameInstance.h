@@ -1,10 +1,13 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "BaseGameInstance.generated.h"
+
+class ABaseWeapon;
+class USkeletalMesh;
+class UAnimInstance;
+class UTexture2D;
 
 USTRUCT(BlueprintType)
 struct FSAgentInfo
@@ -12,20 +15,32 @@ struct FSAgentInfo
     GENERATED_BODY()
 
 public:
-    UPROPERTY(BlueprintReadWrite, Category = "BirdOfPrey")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
     FText Name;
 
-    UPROPERTY(BlueprintReadWrite, Category = "BirdOfPrey")
-    TSubclassOf<AActor> BaseWeaponType;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    TSubclassOf<ABaseWeapon> WeaponType;
 
-    UPROPERTY(BlueprintReadWrite, Category = "BirdOfPrey")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
     USkeletalMesh* SkeletalMesh;
 
-    UPROPERTY(BlueprintReadWrite, Category = "BirdOfPrey")
-    UAnimInstance* AnimInstance;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    TSubclassOf<UAnimInstance> AnimInstance;
 
-    UPROPERTY(BlueprintReadWrite, Category = "BirdOfPrey")
-    UTexture2D* Image;    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    UTexture2D* Image;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    float Speed;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    float Health;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    float MeshScale;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BirdOfPrey")
+    FLinearColor Colour;
 };
 
 /**
